@@ -6,55 +6,112 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>mugidaichi</h1>
-    <h2>About</h2>
-    <p>本サイトはプログラミング学習課題として公開しているため、一部の個人情報は記載していません。</p>
-    <p>現在、大学にて情報系の授業を中心に履修しています。<br>
-        自分でWebサービスを企画・開発・公開できるようになること、AIの仕組みについてより詳しくなれるよう幅広く勉強に取り組んでいます。</p>
+    <div class="container">
+        <header class="site-header">
+            <div class=""header-top>
+                <span class="mono-label">PORTFOLIO</span>
+                <button id="theme-toggle" class="theme-button">
+                    <span class="mono-label" id="theme-text">DARK MODE</span>
+                </button>
+            </div>
+            <h1 class="handle-name">mugidaichi</h1>
+        </header>
+        
+        <main>
+            <section class="section">
+                <h2 class="mono-label">ABOUT</h2>
+                <p class="muted-text">本サイトはプログラミング学習課題として公開しているため、一部の個人情報は記載していません。</p>
+                <p class="lead-text">現在、大学にて情報系の授業を中心に履修しています。<br>
+                    自分でWebサービスを企画・開発・公開できるようになること、AIの仕組みについてより詳しくなれるよう幅広く勉強に取り組んでいます。</p>
+                <ul class="data-list">
+                    <li>
+                        <span class="data-key">名前（ハンドルネーム）</span>
+                        <span class="data-val">mugidaichi</span>
+                    </li>
+                    <li>
+                        <span class="data-key">所在地</span>
+                        <span class="data-val">東京都（仮）</span>
+                    </li>
+                    <li>
+                        <span class="data-key">関心のある領域</span>
+                        <span class="data-val">AI, 音声信号処理</span>
+                    </li>
+                </ul>
+            </section>
 
-    <h3>Profile</h3>
-    <ul>
-        <li>名前:mugidaichi</li>
-        <li>所在地:東京都（仮）</li>
-        <li>関心のある領域:AI, 音声信号処理</li>
-    </ul>
+            <section>
+                <h3 class="mono-label">勉強中のスキル</h3>
+                <table class="minimal-table">
+                    <tr>
+                        <th>プログラミング言語</th>
+                        <td>JS, Python, Zig</td>
+                    </tr>
+                    <tr>
+                        <th>資格・免許</th>
+                        <td>なし</td>
+                    </tr>
+                </table>
+            </section>
+            
+            <section>
+                <h3 class="mono-label">活動</h3>
+                <p class="muted-text">主に開発途中のプロジェクトが中心です</p>
+                <ul>
+                    <li><a href="">作品1</a></li>
+                    <li><a href="">作品2</a></li>
+                </ul>
+            </section>
+            
+            <section class="section">
+                <h3 class="mono-label">連絡先</h3>
+                <p class="muted-text">個人情報のため、ダミーの連絡先を記載しています</p>
+                <ul class="work-list">
+                    <li class="work-title"><a href="">Mail</a></li>
+                </ul>
+            </section>
 
-    <h3>勉強中のスキル</h3>
-    <table>
-        <tr>
-            <th>プログラミング言語</th>
-            <td>JS/TS, Python/Mojo, Zig</td>
-        </tr>
-        <tr>
-            <th>資格・免許</th>
-            <td>なし</td>
-        </tr>
-    </table>
+            <section class="section">
+                <h3 class="mono-label">経歴</h3>
+                <p class="muted-text">仮の経歴を掲載しています</p>
+                <table class="minimal-table">
+                    <tr>
+                        <th>2023年</th>
+                        <td>○○高校卒業</td>
+                    </tr>
+                    <tr>
+                        <th>2025年</th>
+                        <td>○○大学入学</td>
+                    </tr>
+                </table>
+            </section>
+        </main>
+    </div>
 
-    <h3>活動</h3>
-    <p>主に開発途中のプロジェクトが中心です</p>
-    <ul>
-        <li><a href="">作品1</a></li>
-        <li><a href="">作品2</a></li>
-    </ul>
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const toggleText = document.getElementById('theme-text');
 
-    <h3>連絡先</h3>
-    <p>個人情報のため、ダミーの連絡先を記載しています</p>
-    <ul>
-        <li><a href="">Mail</a></li>
-    </ul>
+        //使っているダークモードに設定されているか？
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+            root.setAttribute('dark-theme', 'dark');
+            themeText.textContent = 'LIGHT MODE';
+        }
+        
+        //getAttribute("属性名"): 指定した属性に現在セットされている値を文字列で取得
+        //setAttribute("属性名", "値"): 要素に新しい属性を追加
+        //removeAttribute("属性名"): 指定した属性そのものを消す
+        toggleBtn.addEventListener('click', () => {
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                root.removeAttribute('data-theme');
+                themeText.textContent = 'DARK MODE';
+            } else {
+                root.setAttribute('data-theme', 'dark');
+                themeText.textContent = 'LIGHT MODE';
+            }
+        });
+    </script>
 
-    <h3>経歴</h3>
-    <p>仮の経歴を掲載しています</p>
-    <table>
-        <tr>
-            <th>2023年</th>
-            <td>○○高校卒業</td>
-        </tr>
-        <tr>
-            <th>2025年</th>
-            <td>○○大学入学</td>
-        </tr>
-    </table>
 </body>
 </html>

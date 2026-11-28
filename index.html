@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>mugidaichiのポートフォリオ</title>
 </head>
 <body>
+    <button id="theme-toggle" class="theme-button floating-toggle">
+        <span id="theme-text">DARK</span>
+    </button>
     <div class="container">
         <header class="site-header">
-            <div class=""header-top>
-                <span class="mono-label">PORTFOLIO</span>
-                <button id="theme-toggle" class="theme-button">
-                    <span class="mono-label" id="theme-text">DARK MODE</span>
-                </button>
+            <div class="header-top">
+                <h1 class="handle-name">mugidaichi</h1>
             </div>
-            <h1 class="handle-name">mugidaichi</h1>
+            
         </header>
         
         <main>
@@ -35,7 +35,7 @@
                     </li>
                     <li>
                         <span class="data-key">関心のある領域</span>
-                        <span class="data-val">AI, 音声信号処理</span>
+                        <span class="data-val">AI, オーディオ</span>
                     </li>
                 </ul>
             </section>
@@ -56,18 +56,23 @@
             
             <section class="section">
                 <h3 class="mono-label">活動</h3>
-                <p class="muted-text">主に開発途中のプロジェクトが中心です</p>
-                <ul>
-                    <li><a href="">作品1</a></li>
-                    <li><a href="">作品2</a></li>
+                <ul class="work-list">
+                    <li>
+                        <span class="work-title"><a href="https://github.com/mugidaichi-code/mojo-dl">mojo-dl</a></span>
+                        <span class="work_desc">ゼロから作るディープラーニングの内容をMojoで再実装。随時更新中。</span>
+                    </li>
+                    <li>
+                        <span class="work-title"><a href="">NativeSDK-MusicPlayer</a></span>
+                        <span class="work_desc">Vercel NativeSDKを用いてミュージックプレイヤーを作っています。</span>
+                    </li>
                 </ul>
             </section>
             
             <section class="section">
                 <h3 class="mono-label">連絡先</h3>
                 <p class="muted-text">個人情報のため、ダミーの連絡先を記載しています</p>
-                <ul class="work-list">
-                    <li class="work-title"><a href="">Mail</a></li>
+                <ul class="contact-list">
+                    <li class=""><a href="">Mail</a></li>
                 </ul>
             </section>
 
@@ -87,32 +92,6 @@
             </section>
         </main>
     </div>
-
-    <script>
-        const toggleBtn = document.getElementById('theme-toggle');
-        const toggleText = document.getElementById('theme-text');
-
-        //使っているダークモードに設定されているか？
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (prefersDark) {
-            root.setAttribute('dark-theme', 'dark');
-            themeText.textContent = 'LIGHT MODE';
-        }
-        
-        //getAttribute("属性名"): 指定した属性に現在セットされている値を文字列で取得
-        //setAttribute("属性名", "値"): 要素に新しい属性を追加
-        //removeAttribute("属性名"): 指定した属性そのものを消す
-        toggleBtn.addEventListener('click', () => {
-            const isDark = root.getAttribute('data-theme') === 'dark';
-            if (isDark) {
-                root.removeAttribute('data-theme');
-                themeText.textContent = 'DARK MODE';
-            } else {
-                root.setAttribute('data-theme', 'dark');
-                themeText.textContent = 'LIGHT MODE';
-            }
-        });
-    </script>
-
+    <script src="theme.js"></script>
 </body>
 </html>
